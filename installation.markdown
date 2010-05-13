@@ -137,14 +137,16 @@ php symfony project:permissions
 ブラウザから表示の確認
 ----------------------
 
-さて、ここまで準備ができたらウェブブラウザからSymfonyのディレクトリにアクセスして、初期表示を確認しましょう。
+さて、ここまで準備ができたらWebブラウザからSymfonyのディレクトリにアクセスして、初期表示を確認しましょう。
 sf_sandboxをローカル環境のドキュメントルート直下で展開した場合は、アクセスするURLは次のとおりです。
 
 <pre class="command-line">
 http://localhost/sf_sandbox/web/frontend_dev.php
 </pre>
 
-「Symfony Project Created」というような画面が表示されたでしょうか？このメッセージが表示されれば、まずはSymfonyを動作させる最低限の設定の完了です。
+!(Symfony Project Createdの画面)[images/project_created.png]
+
+上のような「Symfony Project Created」の画面が表示されたでしょうか？このメッセージが表示されれば、まずはSymfonyを動作させる最低限の設定の完了です。
 
 > **NOTE**
 > お使いの環境の設定やサンドボックスパッケージを展開したディレクトリによっては上記のURLとは異なる場合があります。
