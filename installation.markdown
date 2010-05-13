@@ -62,6 +62,15 @@ sf_sandbox/
     plugins/
     test/
     web/
+        css/
+        images/
+        js/
+        sfDoctrinePlugin/
+        uploads/
+        .htaccess
+        frontend_dev.php
+        index.php
+        robots.txt
     LICENSE
     README
     symfony
