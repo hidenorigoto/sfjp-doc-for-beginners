@@ -114,7 +114,7 @@ ln -s lib/vendor/symfony/data/web/sf web/
 ### Windows環境
 <pre class="command-line">
 # sf_sandboxディレクトリにて
-xcopy /S /E /F /G /H /R /K /Y lib\vendor\symfony\data\web\sf web\sf\
+xcopy /E /F /Y lib\vendor\symfony\data\web\sf web\sf\
 
 # エクスプローラでsfディレクトリをwebディレクトリへコピーしても構いません
 </pre>
