@@ -162,11 +162,10 @@ Symfonyを設置した開発サーバーとは別のコンピュータからア�
 もしこのようなメッセージが表示された場合は、`web/frontend_dev.php`ファイルを開き、以下の行をコメントアウトして下さい。
 
     [php]
-    if (!in_array(@$_SERVER[''REMOTE_ADDR''], array(''127.0.0.1'', ''::1'')))
+    if (!in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')))
     {
-        die(''You are not allowed to access this file. Check ''.basename(__FILE__).'' for more information.'');
+        die('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
     }
-    
 
 
 
