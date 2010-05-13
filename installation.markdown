@@ -144,7 +144,7 @@ sf_sandboxをローカル環境のドキュメントルート直下で展開し�
 http://localhost/sf_sandbox/web/frontend_dev.php
 </pre>
 
-!(Symfony Project Createdの画面)[images/project_created.png]
+![Symfony Project Createdの画面](images/project_created.png)
 
 上のような「Symfony Project Created」の画面が表示されたでしょうか？このメッセージが表示されれば、まずはSymfonyを動作させる最低限の設定の完了です。
 
