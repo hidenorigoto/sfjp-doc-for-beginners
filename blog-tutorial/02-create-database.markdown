@@ -24,7 +24,7 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: ''mysql:host=localhost;dbname=blogsymfony''
+      dsn: 'mysql:host=localhost;dbname=blogsymfony'
       username: USERNAME
       password: PASSWORD
       attributes:

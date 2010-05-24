@@ -1,30 +1,30 @@
-blog�`���[�g���A��(4) �ǉ��̐ݒ�
+blogチュートリアル(4) 追加の設定
 ================================
 
-CSRF�V�[�N���b�g�̕ύX
+CSRFシークレットの変更
 ----------------------
 
-symfony�ł̓f�t�H���g��CSRF�΍􂪗L���ɂȂ��Ă��܂��isymfony 1.3���B����ȑO�̓I�v�V�����j�B
-�T���h�{�b�N�X�p�b�P�[�W���_�E�����[�h�����ꍇ�́A����CSRF�ی�Ɏg����V�[�N���b�g�������K���ύX���Ă��������B
-apps/frontend/config/settings.yml�t�@�C�����J���A**csrf_secret**�̒l��K���Ȕ��p�p��������ɏ��������Ă��������B
+symfonyではデフォルトでCSRF対策が有効になっています（symfony 1.3より。それ以前はオプション）。
+サンドボックスパッケージをダウンロードした場合は、このCSRF保護に使われるシークレット文字列を必ず変更してください。
+apps/frontend/config/settings.ymlファイルを開き、**csrf_secret**の値を適当な半角英数文字列に書き換えてください。
 
 <pre>
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            fweefawkpkfwea230912jfasmknfa923 # �K���ȕ�����
+    csrf_secret:            fweefawkpkfwea230912jfasmknfa923 # 適当な文字列
 </pre>
 
 
-�f�B���N�g���̃p�[�~�b�V����
+ディレクトリのパーミッション
 ----------------------------
 
-Linux���̏ꍇ�́A�������̃f�B���N�g���̃p�[�~�b�V�������E�F�u�T�[�o�[�̃v���Z�X���珑�����߂�悤�ɐݒ肷��K�v������܂��B
-������s���ɂ́A�ȉ��̂悤��symfony�R�}���h�����s���Ă��������B
+Linux環境の場合は、いくつかのディレクトリのパーミッションをウェブサーバーのプロセスから書き込めるように設定する必要があります。
+これを行うには、以下のようにsymfonyコマンドを実行してください。
 
 <pre>
 php symfony project:permissions
 </pre>
 
 > **TIP**
-> ��̓I�ɂ́Acache/�����log/�f�B���N�g�����������݉\�ȃp�[�~�b�V�����ɐݒ肵�܂��B
+> 具体的には、cache/およびlog/ディレクトリを書き込み可能なパーミッションに設定します。
