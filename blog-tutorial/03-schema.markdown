@@ -5,7 +5,7 @@ blogチュートリアル(3) スキーマの定義とテーブルの生成
 ---------------
 
 symfonyでは、データベースのスキーマをsymfony内の設定ファイル（schema.yml）に記述し、この設定から、データベース内にテーブルを生成します。
-config/doctrine/schema.ymlファイルをエディタで開き、以下のように編集してください。
+`config/doctrine/schema.yml`ファイルをエディタで開き、以下のように編集してください。
 
 <pre>
 Post:
@@ -25,6 +25,7 @@ Post:
 
 > **NOTE**
 > CakePHPの場合はテーブル名に複数形（ブログチュートリアルでは「posts」）を使用するのに対し、symfonyでは単数形を使用することに注意してください。
+> また、スキーマの定義では、モデル名にはキャメルケース、カラム名には小文字とアンダースコアを使って命名することに注意が必要です。
 
 
 テーブルの生成
@@ -51,13 +52,13 @@ fixtureを使ったテストデータの投入
 
 このチュートリアルで使用するテストデータもここで投入しておきましょう。
 symfonyにはRuby on Rails由来のfixture機能があり、YAML形式で記述したテストデータを簡単にデータベースに投入できます。
-data/fixtures/fixtures.ymlファイルを開き、次のように編集してください。
+`data/fixtures/fixtures.yml`ファイルを開き、次のように編集してください。
 
 <pre>
 Post:
   post1:
-    title: タ<b>イ</b>トル
-    body:  これは、<br />記事の本文です。
+    title: タ&lt;b&gt;イ&lt;/b&gt;トル
+    body:  これは、&lt;br /&gt;記事の本文です。
 
   post2:
     title: またタイトル
