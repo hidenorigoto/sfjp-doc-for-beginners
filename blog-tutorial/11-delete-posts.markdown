@@ -4,19 +4,19 @@ blogチュートリアル(11) 投稿記事の削除
 次は、ユーザーが既存の記事を削除できるようにしてみましょう。
 
 これは、postモジュールのdeleteアクションとして実装します。
-apps/frontend/modules/actions/actions.class.phpファイルをエディタで開き、以下のコードを**追加**してください。
+`apps/frontend/modules/actions/actions.class.php`ファイルをエディタで開き、以下のコードをクラスの末尾に**追加**してください。
 
 	[php]
 	public function executeDelete(sfWebrequest $request)
 	{
-	  $id = $request->getParameter(''id'');
+	  $id = $request->getParameter('id');
 	  Doctrine_Query::create()
 	    ->delete()
-	    ->from(''Post p'')
-	    ->where(''p.id = ?'', $id)
+	    ->from('Post p')
+	    ->where('p.id = ?', $id)
 	    ->execute();
-	  $this->getUser()->setFlash(''info'', ''データを削除しました。'');
-	  $this->redirect(''post/index'');
+	  $this->getUser()->setFlash('info', 'データを削除しました。');
+	  $this->redirect('post/index');
 	}
 
 このコードでは、以下の3つのことを行っています。
@@ -35,7 +35,7 @@ DQLはDoctrine独自の機能で、SQLに似た構文でクエリを組み立て
 
 
 削除の確認
----------
+----------
 
 アクションの追加ができたら、ブラウザで一覧画面にアクセスして各行の「削除」をクリックしてみてください。
 「削除」をクリックすると、JavaScriptの確認ダイアログが表示されます。このダイアログで「OK」をクリックすると、先ほど追加したdeleteアクションが実行されます。その後一覧画面にリダイレクトされ、flashメッセージが表示されます。
