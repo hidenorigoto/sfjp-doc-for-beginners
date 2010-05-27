@@ -65,6 +65,10 @@ link_toヘルパーの詳細は、『[The Definitive Guide to symfony 1.2 第9�
 ブラウザで確認
 --------------
 
-ビューのファイルを保存したら、ブラウザで「http://localhost/sf_sandbox/web/frontend_dev.php/post/index」にアクセスしてみてください。
+ビューのファイルを保存したら、ブラウザで「`http://localhost/sf_sandbox/web/frontend_dev.php/post/index`」にアクセスしてみてください。
 この時点では、最初にfixtureで登録した3件のレコードがリストに表示されればOKです。
+
+> **TIP**
+> アクセスするURLは、お使いの環境に合わせて適宜読み替えて下さい。
+
 
