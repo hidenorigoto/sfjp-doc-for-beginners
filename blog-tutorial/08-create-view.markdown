@@ -9,7 +9,7 @@ blogチュートリアル(8) ビューの作成
 indexSuccess.phpファイルの編集
 ------------------------------
 
-apps/frontend/modules/templates/indexSuccess.phpファイルを開き、以下のように編集して下さい。
+`apps/frontend/modules/templates/indexSuccess.php`ファイルを開き、以下のように編集して下さい。
 
 	[php]
 	<h1>Blog posts</h1>
@@ -27,29 +27,29 @@ apps/frontend/modules/templates/indexSuccess.phpファイルを開き、以下�
 	  <tr>
 	    <td><?php echo $post->getId() ?></td>
 	    <td>
-	      <?php echo link_to($post->getTitle(), ''post/view?id='' . $post->getId()) ?>
+	      <?php echo link_to($post->getTitle(), 'post/view?id=' . $post->getId()) ?>
 	    </td>
 	    <td>
-	      <?php echo link_to(''編集'', ''post/edit?id='' . $post->getId()) ?>
-	      <?php echo link_to(''削除'', ''post/delete?id='' . $post->getId(),
-	                         array(''confirm''=>''id='' . $post->getId() . ''のデータを削除してもよろしいですか？'')) ?>
+	      <?php echo link_to('編集', 'post/edit?id=' . $post->getId()) ?>
+	      <?php echo link_to('削除', 'post/delete?id=' . $post->getId(),
+	                         array('confirm'=>'id=' . $post->getId() . 'のデータを削除してもよろしいですか？')) ?>
 	    </td>
 	    <td><?php echo $post->getCreatedAt() ?></td>
 	  </tr>
 	  <?php endforeach; ?>
 	
 	</table>
-	<?php echo link_to(''新規追加'', ''post/add'') ?>
-	<?php if ($flash = $sf_user->getFlash(''info'')): ?>
+	<?php echo link_to('新規追加', 'post/add') ?>
+	<?php if ($flash = $sf_user->getFlash('info')): ?>
 	<?php echo $flash ?>
 	<?php endif ?>
 
 **$posts**変数をループで処理している点はCakePHPと同じです。
-しかし、**$posts**変数の中に格納されているのがレコードを表す**オブジェクト**になっている点が大きく異なります。したがって、レコードのIDやタイトルを取得するのに以下のようにオブジェクトのメソッドを使用します。
+しかし、**$posts**変数の中に格納されているのがレコードを表す**オブジェクト**になっている点が大きく異なります。したがって、レコードのIDやタイトルを取得するには以下のようにオブジェクトのメソッドを使用します。
 
-- id: $post->getId()
-- title: $post->getTitle()
-- created_at: $post->getCreatedAt()
+- `id`フィールド: $post->getId()
+- `title`フィールド: $post->getTitle()
+- `created_at`フィールド: $post->getCreatedAt()
 
 > **TIP**
 > データベースのフィールド名と、アクセサメソッド名の対応はお分かりでしょうか。フィールド名は「小文字＋アンダースコア」で、対応するアクセサ名は、アンダースコアを削除し、各パートの先頭文字を大文字にしたものになっています。
