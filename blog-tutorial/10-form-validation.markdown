@@ -9,36 +9,36 @@ blogチュートリアル(10) データのバリデーション
 ----------------
 
 フォームにバリデーションを設定するには、フォームクラスで対応するフィールドにバリデーターを設定します。
-lib/form/PostForm.class.phpをエディタで開き、configureメソッドを以下のように修正してください。
+`lib/form/PostForm.class.php`をエディタで開き、`configure`メソッドを以下のように修正してください。
 
 	[php]
 	public function configure()
 	{
-	  $this->useFields(array(''id'', ''title'', ''body''));
+	  $this->useFields(array('id', 'title', 'body'));
 	
 	  $ws = $this->getWidgetSchema();
-	  $ws[''title'']
-	    ->setAttribute(''maxlength'', 50);
-	  $ws[''body'']
-	    ->setAttribute(''cols'', 30)
-	    ->setAttribute(''rows'', 3);
+	  $ws['title']
+	    ->setAttribute('maxlength', 50);
+	  $ws['body']
+	    ->setAttribute('cols', 30)
+	    ->setAttribute('rows', 3);
 	
 	  $vs = $this->getValidatorSchema();
-	  $vs[''title'']
-	    ->setOption(''required'', true)
-	    ->setMessage(''required'', ''未入力です'');
-	  $vs[''body'']
-	    ->setOption(''required'', true)
-	    ->setMessage(''required'', ''未入力です'');
+	  $vs['title']
+	    ->setOption('required', true)
+	    ->setMessage('required', '未入力です');
+	  $vs['body']
+	    ->setOption('required', true)
+	    ->setMessage('required', '未入力です');
 	}
 
-このコードでは、titleフィールド、およびbodyフィールドのそれぞれのバリデーターを設定しなおしています。
-また、titleとbodyウィジェットのHTML属性も設定しています。
+このコードでは、`title`フィールド、および`body`フィールドのそれぞれのバリデーターを設定しなおしています。
+また、`title`と`body`ウィジェットのHTML属性も設定しています。
 
 各バリデータに、**required**（必須かどうか）の設定と、それらがエラーだった場合のエラーメッセージを指定しています。
 
 > **NOTE**
-> CakePHPの場合、モデルにフィールドのバリデーションを記述するのに対して、symfonyの場合はモデルとフォームとは（連携していますが）独立しています。
+> CakePHPの場合、フィールドのバリデーションをモデルに記述するのに対して、symfonyの場合はモデルとフォームとは（連携していますが）独立しています。
 > したがって、フォームのフィールドのバリデーションはフォームクラスに記述します。
 
 コードを編集したら保存して、ブラウザで再度入力フォームに戻り、バリデーションが正しく動作していることを確認してみましょう。
@@ -46,8 +46,8 @@ lib/form/PostForm.class.phpをエディタで開き、configureメソッドを�
 
 
 > **TIP**
-> フォームのベースクラス（BasePostForm.class.php）には、生成されたデフォルトのウィジェットやバリデーターが記述されています。
-> （文字列の長さについては、フィールドサイズによって自動的にバリデーションルールが設定されます）
-> スキーマでフィールドをnot nullに設定した場合は、バリデータがrequired=trueオプションで生成されます。
+> フォームのベースクラス（`BasePostForm.class.php`）には、生成されたデフォルトのウィジェットやバリデーターが記述されています。
+> このクラスのコードを見ると、文字列のフィールドでは、フィールドサイズによって自動的にバリデーションルールが設定されていることがわかります。
+> スキーマでフィールドをnot nullに設定した場合は、バリデーターにrequired=trueオプションが設定されます。
 
 
