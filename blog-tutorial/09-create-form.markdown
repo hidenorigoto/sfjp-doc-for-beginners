@@ -40,14 +40,14 @@ sf_sandbox/
 しかし、今回使用するのは**id**、**title**と**body**フィールドのみなので、useFieldsメソッドでこのフィールド以外を使わないよう設定しています。
 
 
-PostFormを使うaddアクションを作成
+PostFormを使うnewアクションを作成
 ---------------------------------
 
-次は、作成したPostFormを使って入力画面を表示するaddアクションを作成します。
-apps/frontend/modules/post/actions/actions.class.phpファイルをエディタで開き、以下のコードを**追加**してください。
+次は、作成したPostFormを使って入力画面を処理するnewアクションを作成します。
+`apps/frontend/modules/post/actions/actions.class.php`ファイルをエディタで開き、以下のコードをクラス内の末尾に**追加**してください。
 
 	[php]
-	public function executeAdd(sfWebRequest $request)
+	public function executeNew(sfWebRequest $request)
 	{
 	  $this->form = new PostForm();
 	  if ($request->isMethod(sfRequest::POST))
@@ -63,7 +63,7 @@ apps/frontend/modules/post/actions/actions.class.phpファイルをエディタ�
 	}
 
 このアクションでは、GETメソッドでアクセスした場合とPOSTメソッドでアクセスした場合の両方を扱っています。
-最初にブラウザで「`post/add`」というURLにアクセスした場合はGETメソッド、
+最初にブラウザで「`post/new`」というURLにアクセスした場合はGETメソッド、
 フォームに内容を入力して送信ボタンを押した場合はPOSTメソッドになります。
 POSTメソッドの場合は、送信されたデータをフォームに**バインド**し、フォームに関連付けられているオブジェクト=Postモデルのレコードを保存しています。
 
@@ -76,10 +76,10 @@ symfonyのflash機能では、単にメッセージを記録するのみです�
 ------------------------------
 
 最後に、表示用のビューを作成します。
-`apps/frontend/modules/post/templates/addSuccess.php`ファイルを作成し、以下のコードを入力して保存してください。
+`apps/frontend/modules/post/templates/newSuccess.php`ファイルを作成し、以下のコードを入力して保存してください。
 
 	[php]
-	<?php echo $form->renderFormTag(url_for('post/add')) ?>
+	<?php echo $form->renderFormTag(url_for('post/new')) ?>
 	<table>
 	<?php echo $form ?>
 	</table>
@@ -96,4 +96,4 @@ symfonyのflash機能では、単にメッセージを記録するのみです�
 動作の確認
 ----------
 
-コードの追加が完了したら、ブラウザで「`http://localhost/sf_sandbox/web/frontend_dev.php/post/add`」にアクセスしてみてください。新規追加用のフォームが表示されたら、何かデータを入力して「add」ボタンをクリックし、データが正しく追加されるかどうか確認してください。
+コードの追加が完了したら、ブラウザで「`http://localhost/sf_sandbox/web/frontend_dev.php/post/new`」にアクセスしてみてください。新規追加用のフォームが表示されたら、何かデータを入力して「add」ボタンをクリックし、データが正しく追加されるかどうか確認してください。

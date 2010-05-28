@@ -10,6 +10,7 @@ blogチュートリアル(11) 投稿記事の削除
 	public function executeDelete(sfWebrequest $request)
 	{
 	  $id = $request->getParameter('id');
+	  $this->forward404Unless($id);
 	  Doctrine_Query::create()
 	    ->delete()
 	    ->from('Post p')
@@ -24,6 +25,11 @@ blogチュートリアル(11) 投稿記事の削除
 1. パラメータから削除対象のIDを取得する。
 2. 指定されたIDに対応するレコードを削除するDoctrineのDQLを作成し実行する。
 3. 削除完了メッセージをflashにセットして、一覧画面へリダイレクトする。
+
+> **TIP**
+> URLパラメーターは、`$request->getParameter()`で取得します。
+> もしURLパラメーターが渡されていない場合は、404ページへ転送しています。
+
 
 
 DQL

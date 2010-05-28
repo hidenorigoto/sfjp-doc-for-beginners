@@ -15,14 +15,15 @@ editアクションの追加
 --------------------
 
 まずはアクションの実装から始めましょう。
-apps/frontend/modules/post/actions/actions.class.phpファイルをエディタで開き、以下のコードを**追加**してください。
+`apps/frontend/modules/post/actions/actions.class.php`ファイルをエディタで開き、以下のコードをクラス内の末尾に**追加**してください。
 
 	[php]
 	public function executeEdit(sfWebrequest $request)
 	{
-	  $id = $request->getParameter(''id'');
+	  $id = $request->getParameter('id');
+	  $this->forward404Unless($id);
 	  $this->form = new PostForm(
-	    Doctrine_Core::getTable(''Post'')->findOneById($id)
+	    Doctrine_Core::getTable('Post')->findOneById($id)
 	    );
 	  if ($request->isMethod(sfRequest::PUT))
 	  {
@@ -30,13 +31,13 @@ apps/frontend/modules/post/actions/actions.class.phpファイルをエディタ�
 	    if ($this->form->isValid())
 	    {
 	      $this->form->save();
-	      $this->getUser()->setFlash(''info'', ''データを更新しました。'');
-	      $this->redirect(''post/index'');
+	      $this->getUser()->setFlash('info', 'データを更新しました。');
+	      $this->redirect('post/index');
 	    }
 	  }
 	}
 
-パラメータで渡されたIDを使って、postテーブルからレコードを読み込んでいます。
+パラメーターで渡されたIDを使って、`post`テーブルからレコードを読み込んでいます。
 さらに、読み込んだレコードオブジェクトを使ってフォームを初期化しています。こうすることで、レコードの値がフォームのウィジェットの初期値にセットされます。
 フォームを初期化した後の処理は、addアクションの場合とほぼ同じです。
 
@@ -52,7 +53,7 @@ apps/frontend/modules/post/templates/editSuccess.phpファイルを作成して�
 ビューのコードも、addの場合とほとんど同じです。
 
 	[php]
-	<?php echo $form->renderFormTag(url_for(''post/edit?id='' . $form->getObject()->getId())) ?>
+	<?php echo $form->renderFormTag(url_for('post/edit?id=' . $form->getObject()->getId())) ?>
 	<table>
 	<?php echo $form ?>
 	</table>
