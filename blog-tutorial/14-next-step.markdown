@@ -96,4 +96,7 @@ autoload:
 autoload.ymlファイルの各項目については、[The symfony Reference Book その他の設定ファイル](http://www.symfony-project.org/reference/1_4/ja/14-Other-Configuration-Files)を参照してください。
 
 
+> **NOTE**
+> symfonyライブラリに含まれるクラス（Doctrine等も含む全て）は、autoload.ymlの設定に関わらず無条件にオートロード対象になっています。
+
 
