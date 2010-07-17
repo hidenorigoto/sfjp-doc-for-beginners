@@ -97,6 +97,7 @@ symfonyのflash機能では、単にメッセージを記録するのみです�
 > **NOTE**
 > `actions.class.php`内に`require`や`include`を記述しなくても`PostForm`クラスを利用できるのは、
 > symfonyによって`PostForm`クラスがオートロード対象に設定されるためです。
+> symfonyのオートロード機能については、[symfonyのオートロード](14-next-step#2cca0e9ccc20e0b8ae938b179349df08)で説明しています。
 
 
 

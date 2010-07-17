@@ -75,5 +75,5 @@ indexアクションの編集
 
 
 > **NOTE**
-> `Doctrine_Core`クラスはsymfonyによってオートロードされるため、`actions.class.php`にて`include`や`require`を記述する必要はありません。
+> `Doctrine_Core`クラスはsymfonyによってオートロードされるため、`actions.class.php`にて`include`や`require`を記述する必要はありません。symfonyのオートロード機能については、[symfonyのオートロード](14-next-step#2cca0e9ccc20e0b8ae938b179349df08)で説明しています。
 
