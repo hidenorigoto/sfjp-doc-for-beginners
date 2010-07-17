@@ -72,3 +72,8 @@ indexアクションの編集
 
 - ORMであるDoctrineを使って、Postモデルのテーブルメソッド**findAll()**を呼び出し、`post`テーブルのすべてのレコードを取得しています。
 - 上記で取得したレコードを、ビューで「`$posts`」という変数経由で使用できるように設定しています。
+
+
+> **NOTE**
+> `Doctrine_Core`クラスはsymfonyによってオートロードされるため、`actions.class.php`にて`include`や`require`を記述する必要はありません。
+
