@@ -93,4 +93,7 @@ autoload:
 
 上記以外のディレクトリをオートロード対象に追加したい場合は、プロジェクトやアプリケーションのconfigディレクトリにautoload.ymlファイルを作成し、追加したい設定を記述します。
 
+autoload.ymlファイルの各項目については、[The symfony Reference Book その他の設定ファイル](http://www.symfony-project.org/reference/1_4/ja/14-Other-Configuration-Files)を参照してください。
+
+
 
