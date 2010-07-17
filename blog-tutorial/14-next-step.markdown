@@ -39,3 +39,58 @@ Symfonyについて学ぶには、上記Jobeetチュートリアルと合わせ�
   入門者から中級者まで、一読をおすすめします。
 
 
+チュートリアルをさらに理解するための補足
+----------------------------------------
+
+symfonyの理解を深めるために、本文では触れなかったsymfonyの機能についていくつか解説します。
+
+
+### symfonyのオートロード
+
+symfonyでは、PHPのオートロード機能を利用して、ライブラリ内のクラスや自動生成されるモデルクラス、フォームクラスなどを、明示的にincludeやrequireすることなく利用できます。
+
+この「オートロード対象」となるクラスの設定は、`autoload.yml`という設定ファイルで設定でき、symfonyのデフォルトのオートロード設定は以下のファイルに記述されています。
+
+<pre>
+(symfony)/lib/config/config/autoload.yml
+</pre>
+
+このファイルの中身は以下のようになっています。
+
+<pre>
+autoload:
+  # project
+  project:
+    name:           project
+    path:           %SF_LIB_DIR%
+    recursive:      true
+    exclude:        [model, symfony, vendor]
+
+  project_model:
+    name:           project model
+    path:           %SF_LIB_DIR%/model
+    recursive:      true
+
+  # application
+  application:
+    name:           application
+    path:           %SF_APP_LIB_DIR%
+    recursive:      true
+
+  modules:
+    name:           module
+    path:           %SF_APP_DIR%/modules/*/lib
+    prefix:         1
+    recursive:      true
+</pre>
+
+つまり、以下のパスにあるクラスファイルは自動的にオートロード対象になります。
+
+- (プロジェクトルート）/lib ディレクトリ以下で、model、symfony、vendorという名前以外のディレクトリ内のファイル
+- (プロジェクトルート）/lib/model ディレクトリ以下のファイル
+- (プロジェクトルート）/apps/（アプリケーション）/lib ディレクトリ以下のファイル
+- (プロジェクトルート）/apps/（アプリケーション）/modules/*/lib ディレクトリ以下のファイル
+
+上記以外のディレクトリをオートロード対象に追加したい場合は、プロジェクトやアプリケーションのconfigディレクトリにautoload.ymlファイルを作成し、追加したい設定を記述します。
+
+
