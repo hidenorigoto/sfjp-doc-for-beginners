@@ -4,7 +4,7 @@ blogチュートリアル(11) 投稿記事の削除
 次は、ユーザーが既存の記事を削除できるようにしてみましょう。
 
 これは、postモジュールのdeleteアクションとして実装します。
-`apps/frontend/modules/actions/actions.class.php`ファイルをエディタで開き、以下のコードをクラス内の末尾に**追加**してください。
+`apps/frontend/modules/post/actions/actions.class.php`ファイルをエディタで開き、以下のコードをクラス内の末尾に**追加**してください。
 
 	[php]
 	public function executeDelete(sfWebrequest $request)
@@ -49,4 +49,3 @@ DQLはDoctrine独自の機能で、SQLに似た構文でクエリを組み立て
 その後一覧画面にリダイレクトされ、flashメッセージが表示されます。
 
 このように、リンクをクリックしたときにJavaScriptの確認ダイアログを表示するには、link_toヘルパーのconfirmオプションを使います。
-

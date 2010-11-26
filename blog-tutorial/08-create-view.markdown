@@ -9,7 +9,7 @@ blogチュートリアル(8) ビューの作成
 indexSuccess.phpファイルの編集
 ------------------------------
 
-`apps/frontend/modules/templates/indexSuccess.php`ファイルを開き、以下のように編集して下さい。
+`apps/frontend/modules/post/templates/indexSuccess.php`ファイルを開き、以下のように編集して下さい。
 
 	[php]
 	<h1>Blog posts</h1>
@@ -99,6 +99,3 @@ URLに対するアクションの関連づけ、アクションに対するビ�
   - ルーティングという機能のデフォルト設定。カスタマイズできます。
 - **executeIndex**（indexアクション）に対して、同一モジュールのtemplatesフォルダ内の**indexSuccess.php**というビューファイルをマッピング
   - (アクション名)Success.php など。アクションの戻り値でエラーテンプレートなど使い分けられます。アクションで何も戻り値を戻さない場合はSuccessサフィックスのついたテンプレートとなります。
-
-
-
