@@ -108,7 +108,7 @@ Symfonyには組み込みのエラー画面やデバッグツールバーがあ�
 ### Linux環境
 <pre class="command-line">
 # sf_sandboxディレクトリにて
-ln -s lib/vendor/symfony/data/web/sf web/
+ln -s ../lib/vendor/symfony/data/web/sf web/
 </pre>
 
 ### Windows環境
